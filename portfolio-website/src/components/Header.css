@@ -2,7 +2,7 @@
 .header {
     padding: 20px;
     display: flex;
-    justify-content: flex-end; /* Align items to the right */
+    justify-content: right; /* Align items to the right */
   }
   
   .nav-list {
@@ -16,12 +16,13 @@
     text-decoration: none;
     font-family: 'Baloo', cursive; /* Specify the bubbly font family */
     color: #333; /* Change link color */
-    font-size: 1.2rem;
-    margin-left: 20px; /* Add spacing between links */
+    font-size: 1.5rem;
+    margin: 20px; /* Add spacing between links */
     transition: all 0.3s ease;
   }
   
   .nav-link:hover {
     color: #ff6e7f;
   }
+
   

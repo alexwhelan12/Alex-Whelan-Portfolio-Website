@@ -9,39 +9,59 @@
 }
 
 .overlay {
-  width: 80%;
-  height: 80%;
+  width: 75%;
+  height: 60%;
   background: rgba(255, 255, 255, 0.2);
   color: #333;
   border-radius: 20px;
   display: flex;
-}
-
-.photo {
-  width: 10%; /* Adjusted width */
-  border-top-left-radius: 20px; /* Rounded top left corner */
-  border-bottom-left-radius: 20px; /* Rounded bottom left corner */
+  align-items: center; /* Center vertically */
+  justify-content: center;
+  font-family: 'Baloo', cursive;
 }
 
 .content {
   display: flex;
+  /* justify-content: space-between; Remove this line */
+  width: 100%; /* Ensure the content takes full width */
+}
+
+.left-section {
+  display: flex;
   flex-direction: column;
+  width: 40%; /* Adjust the width as needed */
+}
+
+.photo {
   padding: 20px;
-  width: 60%; /* Adjusted width */
+  border-radius: 50%;
+  width: 50%; /* Adjusted width */
+  margin-left: 105px;
+  margin-top: 50px;
 }
 
 h1 {
-  font-size: 2rem; /* Adjusted font size */
-  margin-bottom: 20px; /* Added margin to the bottom */
+  font-size: 3rem;
+  margin-top: 30px; /* Add margin between photo and name */
+  margin-left: 105px; /* Add margin to separate the name from the photo */
 }
 
 .TextBox {
+  margin-left: 0;
+  margin-right: 60px;
+  margin-top: auto; /* Center vertically */
+  margin-bottom: auto; /* Center vertically */
   padding: 20px;
-  margin-left: 20px; /* Added margin to the left */
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.2);
   color: #333;
   font-size: 1.5rem;
   overflow: auto;
-  flex: 1; /* Occupy remaining space */
+  flex: 1;
+  font-width: Extra-Light;
+}
+
+span{
+  color: #ff6e7f;
+  
 }
