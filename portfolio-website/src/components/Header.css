@@ -1,0 +1,27 @@
+/* Header.css */
+.header {
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end; /* Align items to the right */
+  }
+  
+  .nav-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Align items horizontally */
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    font-family: 'Baloo', cursive; /* Specify the bubbly font family */
+    color: #333; /* Change link color */
+    font-size: 1.2rem;
+    margin-left: 20px; /* Add spacing between links */
+    transition: all 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    color: #ff6e7f;
+  }
+  

@@ -1,0 +1,47 @@
+/* Home.css */
+.home {
+  background: linear-gradient(90deg, #ff6e7f 0%, #bfe9ff 100%);
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay {
+  width: 80%;
+  height: 80%;
+  background: rgba(255, 255, 255, 0.2);
+  color: #333;
+  border-radius: 20px;
+  display: flex;
+}
+
+.photo {
+  width: 10%; /* Adjusted width */
+  border-top-left-radius: 20px; /* Rounded top left corner */
+  border-bottom-left-radius: 20px; /* Rounded bottom left corner */
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 60%; /* Adjusted width */
+}
+
+h1 {
+  font-size: 2rem; /* Adjusted font size */
+  margin-bottom: 20px; /* Added margin to the bottom */
+}
+
+.TextBox {
+  padding: 20px;
+  margin-left: 20px; /* Added margin to the left */
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.7);
+  color: #333;
+  font-size: 1.5rem;
+  overflow: auto;
+  flex: 1; /* Occupy remaining space */
+}
