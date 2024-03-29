@@ -1,28 +1,34 @@
 /* Header.css */
 .header {
-    padding: 20px;
-    display: flex;
-    justify-content: right; /* Align items to the right */
-  }
-  
-  .nav-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex; /* Align items horizontally */
-  }
-  
-  .nav-link {
-    text-decoration: none;
-    font-family: 'Baloo', cursive; /* Specify the bubbly font family */
-    color: #333; /* Change link color */
-    font-size: 1.5rem;
-    margin: 20px; /* Add spacing between links */
-    transition: all 0.3s ease;
-  }
-  
-  .nav-link:hover {
-    color: #ff6e7f;
-  }
+  padding: 20px;
+  display: flex;
+  justify-content: space-between; /* Align items to the right */
+  align-items: center; /* Center items vertically */
+}
 
-  
+.time {
+  font-family: 'Baloo', cursive;
+  color: #333; 
+  font-size: 1.5rem;
+  margin-left: 20px;
+}
+
+.nav-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex; /* Align items horizontally */
+}
+
+.nav-link {
+  text-decoration: none;
+  font-family: 'Baloo', cursive; /* Specify the bubbly font family */
+  color: #333; /* Change link color */
+  font-size: 1.5rem;
+  margin: 15px; /* Add spacing between links */
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ff6e7f;
+}
