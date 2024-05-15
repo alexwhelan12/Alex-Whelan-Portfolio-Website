@@ -8,7 +8,7 @@
 
 .time {
   font-family: 'Baloo', cursive;
-  color: #333; 
+  color: #192a56; 
   font-size: 1.5rem;
   margin-left: 20px;
 }
@@ -22,13 +22,16 @@
 
 .nav-link {
   text-decoration: none;
-  font-family: 'Baloo', cursive; /* Specify the bubbly font family */
-  color: #333; /* Change link color */
+  font-family: 'Baloo', cursive; 
+  color: #192a56; 
   font-size: 1.5rem;
-  margin: 15px; /* Add spacing between links */
-  transition: all 0.3s ease;
+  margin: 15px; 
+  transition: all 0.3s ease; 
 }
 
 .nav-link:hover {
   color: #ff6e7f;
+  font-size: 1.7rem;
+  padding-top: 0rem; 
+  padding-bottom: 0rem;
 }

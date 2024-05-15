@@ -1,0 +1,99 @@
+.projects-page {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.project-details {
+  flex-grow: 1;
+}
+
+.project-details img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5%;
+  border: 3px solid #192a56;
+}
+
+.project-details h2 {
+  margin-bottom: 10px;
+}
+
+.project-details p {
+  line-height: 1.5;
+}
+
+.projects-bar {
+  width: 200px; /* Adjust the width of the sidebar */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+}
+
+.project-image {
+  cursor: pointer;
+  width: 100%; /* Ensure images take up full width of sidebar */
+  height: 100px; /* Fixed height for all images */
+  object-fit: cover; /* Ensure images cover the container */
+  border-radius: 5%;
+  margin-bottom: 10px;
+  transition: opacity 0.3s ease;
+  margin-top: 25px;
+  border: 3px solid #192a56;
+}
+
+.project-image.selected {
+  width: auto; /* Adjusted width for the selected image in its big form */
+  height: auto; /* Adjusted height for the selected image in its big form */  
+  border: 3px solid #ff6e7f; /* Change border color for selected image */
+}
+
+.projects-bar h1 {
+  margin: 0; /* Remove default margin */
+  padding: 0 10px; /* Add padding to the title */
+  text-align: left; /* Align the title to the left */
+}
+
+.projects-bar img{
+  transition: transform 0.2s ease;
+  margin-left: 10px;
+  width: auto;
+  border: 2px solid #192a56;
+  margin-bottom: 20px;
+  margin-top: 0px;
+}
+
+.projects-bar img:hover {
+  transform: scale(1.2);
+}
+
+.projects-bar p{
+  margin-bottom: 6px;
+  margin-top: 0;
+  text-align: center;
+  color: #192a56;
+}
+
+.bubble {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.2); /* Adjust the alpha value for opacity */
+  border-radius: 50%;
+  animation: floatBubble 10s ease-in-out infinite; /* Adjust animation duration if needed */
+  z-index: -1; /* Ensure bubbles are behind other content */
+}
+
+@keyframes floatBubble {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-5vh) translateX(5vw) rotate(180deg);
+  }
+  100% {
+    transform: translateY(0) translateX(0) rotate(360deg);
+  }
+}

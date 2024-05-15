@@ -1,6 +1,8 @@
 /* Home.css */
 .home {
-  background: linear-gradient(90deg, #ff6e7f 0%, #bfe9ff 100%);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(45deg, #ff6e7f 0%, #bfe9ff 100%);
   color: #fff;
   height: 90vh;
   display: flex;
@@ -8,9 +10,31 @@
   align-items: center;
 }
 
+.bubble {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.2); /* Adjust the alpha value for opacity */
+  border-radius: 50%;
+  animation: floatBubble 10s ease-in-out infinite; /* Adjust animation duration if needed */
+  z-index: 1; /* Ensure bubbles are behind other content */
+}
+
+@keyframes floatBubble {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-5vh) translateX(5vw) rotate(180deg);
+  }
+  100% {
+    transform: translateY(0) translateX(0) rotate(360deg);
+  }
+}
+
 .overlay {
-  width: 75%;
-  height: 65%;
+  width: 80%;
+  height: 70%;
   background: rgba(255, 255, 255, 0.4);
   color: #333;
   border-radius: 20px;
@@ -18,6 +42,7 @@
   align-items: center; /* Center vertically */
   justify-content: center;
   font-family: 'Baloo', cursive;
+  z-index: 2; /* Ensure overlay is above bubbles */
 }
 
 .content {
@@ -33,11 +58,11 @@
 }
 
 .photo {
-  padding: 20px;
   border-radius: 40%;
   width: 50%; /* Adjusted width */
   margin-left: 105px;
   margin-top: 100px;
+  border: 10px solid #192a56;
 }
 
 h1 {
@@ -45,6 +70,7 @@ h1 {
   margin-top: 30px; 
   margin-left: 105px;
   margin-bottom: 100px;
+  white-space: nowrap;
 }
 
 .TextBox {
@@ -64,9 +90,9 @@ h1 {
 
 p{
   margin-left: 15px;
+  color: #192a56;
 }
 
 span{
   color: #ff6e7f;
-  
 }

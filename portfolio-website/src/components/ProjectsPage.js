@@ -1,25 +1,128 @@
-import React from 'react';
-import './ProjectCard';
-import ProjectCard from './ProjectCard'; // Assuming you have a ProjectCard component for each project
+import React, { useState, useEffect } from 'react';
+import './ProjectsPage.css';
+import HelioTelemetry from './HeliosTelemetry.gif'; 
+import SelfSustainingGarden from './SelfSustainingGarden.png';
+import HandheldGameConsole from './HandheldVideoGameConsole.png';
 
-function Home() {
+const ProjectsPage = () => {
+  // Sample project data
+  const projectsData = [
+    {
+      id: 1,
+      name: 'Helios Telemetry Site',
+      description: 'Description for Project 1...',
+      image: HelioTelemetry, // Image for Project 1
+    },
+    {
+      id: 2,
+      name: 'Self-Sustaining Garden System',
+      description: 'Description for Project 2...',
+      image: SelfSustainingGarden,
+    },
+    {
+      id: 3,
+      name: 'Handheld Game Console',
+      description: 'Description for Project 2...',
+      image: HandheldGameConsole,
+    },
+    {
+      id: 4,
+      name: 'Coming soon!',
+      description: 'Description for Project 4...',
+      image: 'https://via.placeholder.com/1300x700', // Placeholder image
+    }
+    
+  ];
+
+  // State to keep track of the selected project
+  const [selectedProject, setSelectedProject] = useState(projectsData[0].id); // Initialize with the ID of the first project
+
+  // Function to handle project selection
+  const handleProjectSelection = (projectId) => {
+    setSelectedProject(projectId);
+  };
+
+  useEffect(() => {
+    const homeContainer = document.querySelector('.projects-page');
+    const maxBubbles = 20; 
+    const activeBubbles = []; 
+  
+    const createBubble = () => {
+      const bubble = document.createElement('div');
+      bubble.classList.add('bubble');
+      homeContainer.appendChild(bubble);
+  
+      
+      const size = Math.random() * 20 + 5;
+      bubble.style.width = `${size}px`;
+      bubble.style.height = `${size}px`;
+      const duration = Math.random() * 6 + 2;
+      bubble.style.animationDuration = `${duration}s`;
+  
+      
+      const x = Math.random() * window.innerWidth;
+      const y = Math.random() * window.innerHeight;
+      bubble.style.left = `${x}px`;
+      bubble.style.top = `${y}px`;
+  
+     
+      activeBubbles.push(bubble);
+  
+      
+      if (activeBubbles.length > maxBubbles) {
+        const oldestBubble = activeBubbles.shift();
+        oldestBubble.remove();
+      }
+  
+      
+      bubble.addEventListener('animationend', () => {
+        const index = activeBubbles.indexOf(bubble);
+        if (index !== -1) {
+          activeBubbles.splice(index, 1);
+        }
+        bubble.remove();
+      });
+    };
+  
+    for (let i = 0; i < 15; i++) {
+      createBubble();
+    }
+  
+    const bubbleInterval = setInterval(createBubble, 3000);
+  
+    return () => {
+      clearInterval(bubbleInterval);
+    };
+  }, []);
+
   return (
-    <div className="home">
-      <div className="overlay">
-        <div className="content">
-          <div className="left-section">
-            {/* <img src="your_photo.jpg" alt="Your Photo" className="photo" /> */}
-          </div>
-          <div className="TextBox">
-            <div className="project-container">
-              {/* Assuming projects is an array of project objects */}
-              <h2>Helio Telemetry Site</h2>
-            </div>
-          </div>
+    <div className="projects-page">
+      <div className="project-details">
+        <div>
+          <img src={projectsData[selectedProject - 1].image} alt={projectsData[selectedProject - 1].name} />
+          <h2>{projectsData[selectedProject - 1].name}</h2>
+          <p>{projectsData[selectedProject - 1].description}</p>
         </div>
+      </div>
+      <div className="projects-bar">
+        <h1 style={{marginRight: '50px', marginBottom:'0px'}}>Projects</h1>
+        <p style={{color:'#ff7f7f', }}>_____________________</p>
+        {projectsData.map((project) => (
+          <>
+            <p>{project.name}</p>
+            <img
+                key={project.id}
+                src={project.image}
+                alt={project.name}
+                className={`project-image ${selectedProject === project.id ? 'selected' : ''}`}
+                onClick={() => handleProjectSelection(project.id)}
+              />
+          </>
+            
+        ))}
       </div>
     </div>
   );
-}
+};
 
-export default Home;
+export default ProjectsPage;

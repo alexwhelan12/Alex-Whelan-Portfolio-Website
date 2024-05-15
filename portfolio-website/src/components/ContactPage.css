@@ -38,8 +38,9 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     padding: 20px;
     max-width: 600px;
-    margin: 20px auto; /* Center the form horizontally */
+    margin: 20px auto; 
     margin-top: 150px;
+    z-index: 2; 
   }
   
   .contact-form h2 {
@@ -92,4 +93,61 @@ body {
   button[type="submit"]:focus {
     outline: none;
   }
+ 
+  .contact-button {
+    background-color: #ff6e7f;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    margin: 10px; 
+    text-decoration: none; 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center; 
+  }
   
+  .contact-button svg {
+    margin-right: 5px; 
+    margin-bottom: 1px;
+    padding-top: 1px; 
+    padding-left: 8px;
+  }
+  
+  .contact-button:hover {
+    background-color: #e05161;
+  }
+  
+  .contact-button:focus {
+    outline: none;
+  }
+  
+  .button-container {
+    text-align: center;
+    margin-top: 30px; 
+  }
+
+  .bubble {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.2); /* Adjust the alpha value for opacity */
+    border-radius: 50%;
+    animation: floatBubble 10s ease-in-out infinite; /* Adjust animation duration if needed */
+    z-index: 1; /* Ensure bubbles are behind other content */
+  }
+  
+  @keyframes floatBubble {
+    0% {
+      transform: translateY(0) translateX(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-5vh) translateX(5vw) rotate(180deg);
+    }
+    100% {
+      transform: translateY(0) translateX(0) rotate(360deg);
+    }
+  }
