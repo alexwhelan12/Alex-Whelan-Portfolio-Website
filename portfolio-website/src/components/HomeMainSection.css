@@ -8,28 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.bubble {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background-color: rgba(255, 255, 255, 0.2); /* Adjust the alpha value for opacity */
-  border-radius: 50%;
-  animation: floatBubble 10s ease-in-out infinite; /* Adjust animation duration if needed */
-  z-index: 1; /* Ensure bubbles are behind other content */
-}
-
-@keyframes floatBubble {
-  0% {
-    transform: translateY(0) translateX(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-5vh) translateX(5vw) rotate(180deg);
-  }
-  100% {
-    transform: translateY(0) translateX(0) rotate(360deg);
-  }
+  z-index: 0;
 }
 
 .overlay {
@@ -42,7 +21,6 @@
   align-items: center; /* Center vertically */
   justify-content: center;
   font-family: 'Baloo', cursive;
-  z-index: 2; /* Ensure overlay is above bubbles */
 }
 
 .content {
@@ -96,3 +74,30 @@ p{
 span{
   color: #ff6e7f;
 }
+
+.typewriter{
+  color: #ff6e7f;
+}
+
+.bubble {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  animation: floatBubble 10s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes floatBubble {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-5vh) translateX(5vw) rotate(180deg);
+  }
+  100% {
+    transform: translateY(0) translateX(0) rotate(360deg);
+  }
+}
+

@@ -137,7 +137,7 @@ body {
     background-color: rgba(255, 255, 255, 0.2); /* Adjust the alpha value for opacity */
     border-radius: 50%;
     animation: floatBubble 10s ease-in-out infinite; /* Adjust animation duration if needed */
-    z-index: 1; /* Ensure bubbles are behind other content */
+    z-index: -1; /* Ensure bubbles are behind other content */
   }
   
   @keyframes floatBubble {

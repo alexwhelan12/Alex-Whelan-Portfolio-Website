@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Header.css';
+import { sun } from './sun-svgrepo-com.svg';
+import  moon  from './moon-svgrepo-com.svg';
 
 const Header = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
