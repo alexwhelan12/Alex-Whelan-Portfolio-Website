@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './ContactPage.css';
-import { FaGithub, FaLinkedin } from 'react-icons/fa'; 
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import emailjs from 'emailjs-com';
 
 const ContactMe = () => {
   const [formData, setFormData] = useState({
@@ -9,14 +10,25 @@ const ContactMe = () => {
     message: ''
   });
 
+  const [submitted, setSubmitted] = useState(false);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData); // For demonstration purposes
-    // You can perform further actions here, such as sending the form data to a backend or displaying a confirmation message
+    
+    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target, 'YOUR_USER_ID')
+      .then((result) => {
+        console.log(result.text);
+        setSubmitted(true); // Set submitted state to true
+      }, (error) => {
+        console.error(error.text);
+      });
+  
+    // Clear the form after submission
+    setFormData({ name: '', email: '', message: '' });
   };
 
   useEffect(() => {
@@ -73,6 +85,7 @@ const ContactMe = () => {
   }, []);
 
   return (
+    <div className="contactsBody">
     <section className='contact-page'>
       <div className="contact-form">
         <h2>Contact Me</h2>
@@ -91,13 +104,14 @@ const ContactMe = () => {
           </div>
           <button type="submit" className="submit-button">Send Message</button>
         </form>
+        {submitted && <p>Message sent successfully!</p>}
       </div>
       <div className="button-container">
         <a href="https://github.com/alexwhelan12" target="_blank" rel="noopener noreferrer" className="contact-button"><FaGithub size={32} /></a>
         <a href="https://www.linkedin.com/in/alex-whelan-791ab8286/" target="_blank" rel="noopener noreferrer" className="contact-button"><FaLinkedin size={32} /></a>
       </div>
-
     </section>
+    </div>
   );
 };
 

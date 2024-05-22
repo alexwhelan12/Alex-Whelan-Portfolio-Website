@@ -5,7 +5,6 @@ import SelfSustainingGarden from './SelfSustainingGarden.png';
 import HandheldGameConsole from './HandheldVideoGameConsole.png';
 
 const ProjectsPage = () => {
-  // Sample project data
   const projectsData = [
     {
       id: 1,
@@ -96,6 +95,7 @@ const ProjectsPage = () => {
   }, []);
 
   return (
+    <div className="projects-page-body">
     <div className="projects-page">
       <div className="project-details">
         <div>
@@ -109,7 +109,7 @@ const ProjectsPage = () => {
         <p style={{color:'#ff7f7f', }}>_____________________</p>
         {projectsData.map((project) => (
           <>
-            <p>{project.name}</p>
+            <p className="project-title">{project.name}</p>
             <img
                 key={project.id}
                 src={project.image}
@@ -121,6 +121,7 @@ const ProjectsPage = () => {
             
         ))}
       </div>
+    </div>
     </div>
   );
 };

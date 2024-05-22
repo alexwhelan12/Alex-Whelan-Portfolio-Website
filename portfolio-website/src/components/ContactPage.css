@@ -1,9 +1,10 @@
 /* ContactMe.css */
 body {
-    background: linear-gradient(90deg, #ff6e7f 0%, #bfe9ff 100%);
+    background: linear-gradient(45deg, #ff6e7f 0%, #bfe9ff 100%);
     margin: 0;
     padding: 0;
     font-family: Baloo, cursive; 
+    height: 100vh;
   }
   
   .header {
@@ -11,42 +12,22 @@ body {
     padding: 20px;
   }
   
-  .header ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .header ul li {
-    display: inline;
-    margin-right: 20px;
-  }
-  
-  .header ul li a {
-    color: #333;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .header ul li a:hover {
-    color: #ff6e7f;
-  }
-  
   .contact-form {
     color: #fff;
     border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.4);
     padding: 20px;
     max-width: 600px;
     margin: 20px auto; 
     margin-top: 150px;
-    z-index: 2; 
+    z-index: 1; 
   }
   
   .contact-form h2 {
     font-size: 2rem;
     margin-bottom: 20px;
     text-align: center;
+    color: #192a56;
   }
   
   .form-group {
@@ -58,6 +39,7 @@ body {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
+    color: #192a56;
   }
   
   .form-group input,
@@ -137,7 +119,7 @@ body {
     background-color: rgba(255, 255, 255, 0.2); /* Adjust the alpha value for opacity */
     border-radius: 50%;
     animation: floatBubble 10s ease-in-out infinite; /* Adjust animation duration if needed */
-    z-index: -1; /* Ensure bubbles are behind other content */
+    z-index: 0; /* Ensure bubbles are behind other content */
   }
   
   @keyframes floatBubble {

@@ -1,11 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './HomeMainSection.css'; 
 import HeadShot from './HeadShot.jpeg'; // Import the image file
 import { Typed } from 'react-typed';
-import LoadingScreen from './LoadingScreen';
 
 const HomePageMainSection = () => {
-  const [isLoading, setIsLoading] = useState(true);
   const el = useRef(null);
   const typed = useRef(null);
 
@@ -75,17 +73,7 @@ const HomePageMainSection = () => {
     };
   }, []);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 3000); // Adjust the timeout duration as needed
-
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    <>
-      {isLoading && <LoadingScreen />}
       <section className="home">
         <div className="overlay">
           <div className="content">
@@ -103,7 +91,6 @@ const HomePageMainSection = () => {
           </div>
         </div>
       </section>
-    </>
   );
 };
 

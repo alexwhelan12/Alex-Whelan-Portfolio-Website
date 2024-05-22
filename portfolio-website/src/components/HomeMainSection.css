@@ -8,7 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 0;
+  z-index: 1;
 }
 
 .overlay {
@@ -21,6 +21,7 @@
   align-items: center; /* Center vertically */
   justify-content: center;
   font-family: 'Baloo', cursive;
+  z-index: 1;
 }
 
 .content {
@@ -86,7 +87,7 @@ span{
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 50%;
   animation: floatBubble 10s ease-in-out infinite;
-  z-index: 1;
+  z-index: 0;
 }
 
 @keyframes floatBubble {
@@ -100,4 +101,3 @@ span{
     transform: translateY(0) translateX(0) rotate(360deg);
   }
 }
-
