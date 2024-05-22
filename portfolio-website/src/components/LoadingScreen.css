@@ -1,0 +1,41 @@
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+  }
+  
+  .loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .loading-bubble {
+    width: 30px;
+    height: 30px;
+    background-color: #ff6e7f; /* Bubble color to match your site's theme */
+    border-radius: 50%;
+    margin: 0 10px; /* Adjust spacing between bubbles */
+    animation: wave 0.8s infinite; /* Decreased animation duration */
+    animation-delay: calc(0.1s * var(--index)); /* Delay each bubble animation */
+  }
+  
+  @keyframes wave {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }

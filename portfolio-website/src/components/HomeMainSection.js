@@ -1,9 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './HomeMainSection.css'; 
 import HeadShot from './HeadShot.jpeg'; // Import the image file
 import { Typed } from 'react-typed';
+import LoadingScreen from './LoadingScreen';
 
 const HomePageMainSection = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const el = useRef(null);
   const typed = useRef(null);
 
@@ -73,24 +75,35 @@ const HomePageMainSection = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000); // Adjust the timeout duration as needed
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <section className="home">
-      <div className="overlay">
-        <div className="content">
-          <div className="left-section">
-            <img src={HeadShot} alt="Headshot" className="photo" />
-            <h1>
-              <span ref={el} className="typewriter"></span>
-            </h1>
-          </div>
-          <div className="TextBox">
-            <p>I'm a <span>2nd Year Software Engineering student</span> at the <span>University of Calgary</span>. I'm very passionate about software engineering,
-              which is evident in my involvement in the <span>University of Calgary Solar Car Team</span>. My skills include programming languages like C/C++, Python,
-              HTML, CSS, JavaScript. I also have very good proficiency in technologies such as React.js, Tailwind.css and SQL.</p>
+    <>
+      {isLoading && <LoadingScreen />}
+      <section className="home">
+        <div className="overlay">
+          <div className="content">
+            <div className="left-section">
+              <img src={HeadShot} alt="Headshot" className="photo" />
+              <h1>
+                <span ref={el} className="typewriter"></span>
+              </h1>
+            </div>
+            <div className="TextBox">
+              <p>I'm a <span>2nd Year Software Engineering student</span> at the <span>University of Calgary</span>. I'm very passionate about software engineering,
+                which is evident in my involvement in the <span>University of Calgary Solar Car Team</span>. My skills include programming languages like C/C++, Python,
+                HTML, CSS, JavaScript. I also have very good proficiency in technologies such as React.js, Tailwind.css and SQL.</p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
