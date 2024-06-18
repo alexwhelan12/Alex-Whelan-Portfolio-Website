@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Header.css';
 import { ReactComponent as Sun } from './sun-svgrepo-com.svg';
-import { MdPadding } from 'react-icons/md';
 import { ReactComponent as Cloud } from './cloud-svgrepo-com.svg';
 import { ReactComponent as Rain } from './rain-svgrepo-com.svg';
 import { ReactComponent as Snow } from './snow-alt-1-svgrepo-com.svg';
