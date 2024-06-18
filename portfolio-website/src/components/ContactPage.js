@@ -4,31 +4,31 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import emailjs from 'emailjs-com';
 
 const ContactMe = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
 
-  const [submitted, setSubmitted] = useState(false);
+  const [successMessage, setSuccessMessage] = useState(false);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
     
-    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target, 'YOUR_USER_ID')
-      .then((result) => {
-        console.log(result.text);
-        setSubmitted(true); // Set submitted state to true
-      }, (error) => {
-        console.error(error.text);
-      });
-  
-    // Clear the form after submission
-    setFormData({ name: '', email: '', message: '' });
+    formData.append("access_key", "72194b2d-7936-496e-9efa-1380b6a695ab");
+
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: json
+    }).then((res) => res.json());
+
+    if (res.success) {
+      console.log("Success", res);
+      setSuccessMessage(true);
+    }
   };
 
   useEffect(() => {
@@ -92,24 +92,25 @@ const ContactMe = () => {
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="name">Name</label>
-            <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required />
+            <input type="text" id="name" name="name" required />
           </div>
           <div className="form-group">
             <label htmlFor="email">Email</label>
-            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
+            <input type="email" id="email" name="email" required />
           </div>
           <div className="form-group">
             <label htmlFor="message">Message</label>
-            <textarea id="message" name="message" value={formData.message} onChange={handleChange} required />
+            <textarea id="message" name="message" required />
           </div>
           <button type="submit" className="submit-button">Send Message</button>
         </form>
-        {submitted && <p>Message sent successfully!</p>}
+        {successMessage && <p className="success-message" style={{"paddingLeft":"160px", "fontSize": "20px", "zIndex": "100"}}>Message sent successfully!</p>}
       </div>
       <div className="button-container">
         <a href="https://github.com/alexwhelan12" target="_blank" rel="noopener noreferrer" className="contact-button"><FaGithub size={32} /></a>
         <a href="https://www.linkedin.com/in/alex-whelan-791ab8286/" target="_blank" rel="noopener noreferrer" className="contact-button"><FaLinkedin size={32} /></a>
       </div>
+      
     </section>
     </div>
   );

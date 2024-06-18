@@ -9,26 +9,26 @@ const ProjectsPage = () => {
     {
       id: 1,
       name: 'Helios Telemetry Site',
-      description: 'Description for Project 1...',
-      image: HelioTelemetry, // Image for Project 1
+      description: 'Telemetry Dashboard for Shulich Helios, the 6th generation car for the University of Calgary Solar Car Team.',
+      image: HelioTelemetry,
     },
     {
       id: 2,
       name: 'Self-Sustaining Garden System',
-      description: 'Description for Project 2...',
+      description: 'Simple self-sustaining garden system that waters plants based on soil moisture levels.',
       image: SelfSustainingGarden,
     },
     {
       id: 3,
       name: 'Handheld Game Console',
-      description: 'Description for Project 2...',
+      description: 'Handheld maze video game console. Built using an Arduino and a 1.8" TFT display.',
       image: HandheldGameConsole,
     },
     {
       id: 4,
       name: 'Coming soon!',
       description: 'Description for Project 4...',
-      image: 'https://via.placeholder.com/1300x700', // Placeholder image
+      image: 'https://via.placeholder.com/1300x700',
     }
     
   ];
@@ -101,7 +101,7 @@ const ProjectsPage = () => {
         <div>
           <img src={projectsData[selectedProject - 1].image} alt={projectsData[selectedProject - 1].name} />
           <h2>{projectsData[selectedProject - 1].name}</h2>
-          <p>{projectsData[selectedProject - 1].description}</p>
+          <p className='projectDescription'>{projectsData[selectedProject - 1].description}</p>
         </div>
       </div>
       <div className="projects-bar">
