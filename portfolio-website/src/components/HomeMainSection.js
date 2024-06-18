@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef , useState} from 'react';
 import './HomeMainSection.css'; 
 import HeadShot from './HeadShot.jpeg'; // Import the image file
 import { Typed } from 'react-typed';
@@ -72,6 +72,8 @@ const HomePageMainSection = () => {
         typed.current.destroy();
     };
   }, []);
+
+  
 
   return (
       <section className="home">

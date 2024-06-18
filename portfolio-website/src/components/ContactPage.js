@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './ContactPage.css';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import emailjs from 'emailjs-com';
 
 const ContactMe = () => {
 
@@ -100,7 +99,7 @@ const ContactMe = () => {
           </div>
           <div className="form-group">
             <label htmlFor="message">Message</label>
-            <textarea id="message" name="message" required />
+            <textarea id="message" name="message" required style={{"resize":"none"}}/>
           </div>
           <button type="submit" className="submit-button">Send Message</button>
         </form>

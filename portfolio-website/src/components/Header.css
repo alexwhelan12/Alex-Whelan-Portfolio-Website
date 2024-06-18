@@ -10,7 +10,6 @@
 .time {
   font-family: 'Baloo', cursive;
   color: #192a56; 
-  font-size: 1.5rem;
   margin-left: 20px;
 }
 
@@ -35,8 +34,4 @@
   font-size: 1.7rem;
   padding-top: 0rem; 
   padding-bottom: 0rem;
-}
-
-MoonStars{
-  margin-right: 1000px;
 }

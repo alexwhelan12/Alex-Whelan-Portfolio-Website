@@ -9,9 +9,9 @@ import { ReactComponent as Thunderstorm } from './thunderstorm-svgrepo-com.svg'
 
 const Header = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
-
   const [currentWeather, setCurrentWeather] = useState('');
   const [currentTemperature, setCurrentTemperature] = useState('');
+  const [screenSize, setScreenSize] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -62,17 +62,17 @@ const Header = () => {
 
 const iconStyles ={
   position: 'absolute',
-  left: '200px',
+  left: '180px',
   zIndex: 10000,
   margin: 0,
   marginRight: '880px',
   padding: 0,
-  color: '#192a56',
+  Fill: '#192a56',
 }
 
 const temperatureStyles = {
   position: 'absolute',
-  left: '250px',
+  left: '230px',
   zIndex: 10000,
   margin: 0,
   padding: 0,
@@ -80,11 +80,17 @@ const temperatureStyles = {
   textAlign: 'left'
 };
 
+useEffect(() => {
+  setScreenSize(window.innerWidth);
+ }, []);
 
   return (
     <header className="header">
-      <div className="time">{currentTime.toLocaleTimeString()}</div>
-      {currentWeather === 'Clear' ? (
+
+      {screenSize <= 640 ? (<div className="time" style={{"font-size":"1.1rem"}}>{currentTime.toLocaleTimeString()}</div>) :(<div className="time" style={{"font-size": "1.5rem"}}>{currentTime.toLocaleTimeString()}</div>)}
+  
+      {screenSize <= 640 ? <></> : (
+      currentWeather === 'Clear' ? (
         <Sun
           width="40px"
           height="40px"
@@ -127,8 +133,11 @@ const temperatureStyles = {
         />
       ) : (
         <div></div>
-      )} 
-      <div className="temperature" style={temperatureStyles}>{currentTemperature}</div>
+      )
+    )
+    }
+
+    {screenSize <= 640 ? <></> : (<div className="temperature" style={temperatureStyles}>{currentTemperature}</div>)}
       <nav>
         <ul className="nav-list">
           <li>
