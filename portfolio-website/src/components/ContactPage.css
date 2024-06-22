@@ -138,3 +138,26 @@ body {
       transform: translateY(0) translateX(0) rotate(360deg);
     }
   }
+
+  @media screen and (max-width: 768px) {
+    .contact-form {
+      width: 80%;
+      margin-top: 50px;
+      margin-bottom:0;
+    }
+
+    .button-container {
+      margin-bottom: 0;
+    }
+
+    #root{
+      overflow: none;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .contact-form {
+      width: 75%;
+    }
+
+  }

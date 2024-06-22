@@ -10,7 +10,6 @@ const Header = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [currentWeather, setCurrentWeather] = useState('');
   const [currentTemperature, setCurrentTemperature] = useState('');
-  const [screenSize, setScreenSize] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -79,27 +78,21 @@ const temperatureStyles = {
   textAlign: 'left'
 };
 
-useEffect(() => {
-  setScreenSize(window.innerWidth);
- }, []);
-
   return (
     <header className="header">
-
-      {screenSize <= 640 ? (<div className="time" style={{"font-size":"1.1rem"}}>{currentTime.toLocaleTimeString()}</div>) :(<div className="time" style={{"font-size": "1.5rem"}}>{currentTime.toLocaleTimeString()}</div>)}
-  
-      {screenSize <= 640 ? <></> : (
-      currentWeather === 'Clear' ? (
+      <div className="time">{currentTime.toLocaleTimeString()}</div>
+        {currentWeather === 'Clear' ? (
         <Sun
+          className="weather-icon"
           width="40px"
           height="40px"
           color="black"
           style={iconStyles}
           title="Current Weather: Clear"
         />
-
       ) : currentWeather === 'Cloudy' ? (
         <Cloud
+          className="weather-icon"
           width="40px"
           height="40px"
           color="black"
@@ -108,6 +101,7 @@ useEffect(() => {
         />
       ) : currentWeather === 'Rain' ? (
         <Rain
+          className="weather-icon"
           width="40px"
           height="40px"
           color="black"
@@ -116,6 +110,7 @@ useEffect(() => {
         />
       ) : currentWeather === 'Snow' ? (
         <Snow
+          className="weather-icon"
           width="40px"
           height="40px"
           color="black"
@@ -124,6 +119,7 @@ useEffect(() => {
         />
       ) : currentWeather === 'Thunderstorm' ? (
         <Thunderstorm
+          className="weather-icon"
           width="40px"
           height="40px"
           color="black"
@@ -132,11 +128,11 @@ useEffect(() => {
         />
       ) : (
         <div></div>
-      )
-    )
-    }
+      )}
 
-    {screenSize <= 640 ? <></> : (<div className="temperature" style={temperatureStyles}>{currentTemperature}</div>)}
+
+      <div className="temperature" style={temperatureStyles}>{currentTemperature}</div>
+
       <nav>
         <ul className="nav-list">
           <li>

@@ -15,7 +15,7 @@ const ProjectsPage = () => {
     {
       id: 2,
       name: 'Self-Sustaining Garden System',
-      description: 'Simple self-sustaining garden system that waters plants based on soil moisture levels.',
+      description: 'Simple self-sustaining garden system that waters plants based on soil moisture levels and provides light based off of a light sensor.',
       image: SelfSustainingGarden,
     },
     {
@@ -106,7 +106,7 @@ const ProjectsPage = () => {
       </div>
       <div className="projects-bar">
         <h1 style={{marginRight: '50px', marginBottom:'0px'}}>Projects</h1>
-        <p style={{color:'#ff7f7f', }}>_____________________</p>
+        <hr style={{border: '2px solid #ff7f7f', width: '100%'}} />
         {projectsData.map((project) => (
           <>
             <p className="project-title">{project.name}</p>

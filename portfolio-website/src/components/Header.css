@@ -11,6 +11,7 @@
   font-family: 'Baloo', cursive;
   color: #192a56; 
   margin-left: 20px;
+  font-size: 1.5rem;
 }
 
 .nav-list {
@@ -34,4 +35,32 @@
   font-size: 1.7rem;
   padding-top: 0rem; 
   padding-bottom: 0rem;
+}
+
+@media (max-width: 768px) {
+  .weather-icon {
+    display: none;
+  }
+
+  .temperature {
+    display: none;
+  }
+
+  .time {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .weather-icon {
+    display: none;
+  }
+
+  .temperature {
+    display: none;
+  }
+
+  .time {
+    font-size: 1.1rem;
+  }
 }
